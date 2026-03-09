@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Archive | 3D Visualization Portfolio</title>
     <style>
-        /* [1. 전역 시스템 - 김시민 대교와 100% 동일] */
+        /* [1. 전역 시스템 - 김시민대교와 100% 동일] */
         :root {
             --bg-light: #f9fafb;
             --point-blue: #3b82f6;
@@ -30,16 +30,16 @@
             color: var(--text-p); font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; line-height: 1.6;
         }
 
-        /* [2. 네비게이션 - 호버 효과 포함] */
+        /* [2. 네비게이션 - 김시민대교 그라데이션 적용] */
         .navbar {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; z-index: 1000;
         }
         .nav-container { width: 92%; max-width: var(--max-width); display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-weight: 900; font-size: 1.1rem; background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-logo { font-weight: 900; font-size: 1.1rem; background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; letter-spacing: -0.5px; white-space: nowrap; }
         .nav-menu { display: flex; gap: 30px; }
-        .nav-link { text-decoration: none; color: var(--text-s); font-weight: 700; font-size: 0.95rem; transition: color 0.3s ease; position: relative; padding: 5px 0; }
+        .nav-link { text-decoration: none; color: var(--text-s); font-weight: 700; font-size: 0.95rem; transition: color 0.3s ease; position: relative; padding: 5px 0; white-space: nowrap; }
         .nav-link:hover { color: var(--point-purple) !important; }
         .nav-link.active { color: var(--text-p); }
         .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--grad-point); border-radius: 2px; }
@@ -50,6 +50,7 @@
         .hero-section { margin-bottom: 50px; }
         .hero-label { display: inline-block; padding: 6px 14px; border-radius: 8px; background: rgba(99, 102, 241, 0.08); color: var(--point-purple); font-size: 0.75rem; font-weight: 800; margin-bottom: 15px; border: 1px solid rgba(99, 102, 241, 0.15); }
         .hero-title { font-size: 2.6rem; font-weight: 900; margin: 0 0 15px 0; letter-spacing: -1.5px; line-height: 1.3; }
+        .hero-desc { font-size: 1.1rem; color: var(--text-s); margin: 0 0 25px 0; font-weight: 500; word-break: keep-all; }
 
         /* [4. PC 레이아웃 - 좌우 분할 구조 완벽 유지] */
         .archive-zone { display: flex; gap: 40px; margin-bottom: 100px; align-items: flex-start; }
@@ -70,19 +71,20 @@
         .project-card:hover { border-color: rgba(99, 102, 241, 0.5); transform: translateY(-3px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(99, 102, 241, 0.5) inset; }
 
         .card-video { width: 100%; background: #000; border-bottom: 1px solid var(--card-border); position: relative; }
-        .video-aspect-ratio { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
         
+        /* 🚨 [정렬 해결] 16:9 비율 유지 (PC) */
+        .video-aspect-ratio { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; } 
+
         .card-info { padding: 25px 30px; }
         .title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 10px; }
         .title-row h3 { margin: 0; font-size: 1.4rem; font-weight: 800; }
         .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; font-weight: 700; border: 1px solid #e5e7eb; }
 
-        /* 🚨 [정렬 해결] 점(•) 너비를 22px로 고정하여 김시민 대교와 아이콘 라인 완벽 일치 🚨 */
         .sub-desc-container { margin: 10px 0 12px 0; display: flex; flex-direction: column; gap: 8px; }
         .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.5; }
         .line-item::before { content: '•'; color: inherit; font-weight: 900; flex-shrink: 0; width: 22px; text-align: center; margin-top: 2px; }
         
-        /* 🚨 [해결] NDA 카드 문구: 점 중복 삭제 및 ※ 정렬 🚨 */
+        /* 🚨 [해결] notice 클래스로 점 중복 삭제 및 ※ 정렬 🚨 */
         .line-item.notice::before { content: '※'; color: inherit; width: 22px; text-align: center; margin-top: 1px; }
 
         /* ========================================= */
@@ -90,53 +92,33 @@
         /* ========================================= */
         @media (max-width: 768px) {
             .navbar { height: 60px; }
-            /* 1. 로고 잘림 방지: font-size를 가변적으로 설정하여 화면 폭에 맞춤 */
-            .nav-logo { font-size: clamp(0.7rem, 3.5vw, 0.9rem); letter-spacing: -0.5px; white-space: nowrap; } 
-            .nav-menu { gap: 10px; }
-            .nav-link { font-size: 0.75rem; }
+            .nav-logo { font-size: 0.9rem !important; background: var(--grad-point) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; letter-spacing: -0.5px; white-space: nowrap; } 
+            .nav-menu { gap: 15px; }
+            .nav-link { font-size: 0.8rem; }
             
             .container { margin-top: 60px; width: 94%; padding: 30px 0; }
             
-            /* 2. 타이틀 두 줄 방지: white-space: nowrap과 ellipsis 적용 */
-            .hero-title { 
-                font-size: clamp(1.2rem, 6vw, 1.8rem) !important; 
-                white-space: nowrap !important; 
-                overflow: hidden !important; 
-                text-overflow: ellipsis !important; 
-                letter-spacing: -1px;
-            }
-            .hero-desc { font-size: 0.9rem; word-break: keep-all; }
+            /* 타이틀 한 줄 고정 및 말줄임 */
+            .hero-title { font-size: 1.8rem !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; letter-spacing: -1.5px; }
+            .hero-desc { font-size: 0.95rem; word-break: keep-all; }
             
             .archive-zone { flex-direction: column; gap: 25px; margin-bottom: 60px; }
             .zone-profile { flex: none; width: 100%; position: static; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
             
-            /* 3. 프로필 이름 두 줄 방지 */
-            .big-name { 
-                font-size: 1.8rem !important; 
-                white-space: nowrap !important; 
-                overflow: hidden !important; 
-                text-overflow: ellipsis !important; 
-            } 
+            .big-name { font-size: 1.8rem !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } 
+            
+            /* 🚨 [수정] 모바일 영상 잘림 해결 🚨 */
+            /* 16:9 비율 유지를 위해 aspect-ratio 속성 직접 부여 */
+            .video-aspect-ratio { padding-bottom: 0; height: auto; aspect-ratio: 16 / 9; }
+            
+            /* iframe이 aspect-ratio 범위 내에서 꽉 차도록 설정 */
+            .video-aspect-ratio iframe { position: relative !important; width: 100% !important; height: 100% !important; aspect-ratio: 16 / 9; }
             
             .card-info { padding: 20px; }
-            /* 4. 카드 내부 제목 한 줄 고정 */
-            .title-row h3 { 
-                font-size: 1rem !important; 
-                white-space: nowrap !important; 
-                overflow: hidden !important; 
-                text-overflow: ellipsis !important; 
-            }
+            .title-row h3 { font-size: 1.1rem !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
             
-            /* 5. 리스트 아이템 한 줄 고정 (잘림 방지) */
-            .line-item { 
-                font-size: 0.82rem; 
-                white-space: nowrap !important; 
-                overflow: hidden !important; 
-                text-overflow: ellipsis !important; 
-                display: block !important; /* flex를 풀고 block으로 가야 ellipsis가 먹습니다 */
-                padding-left: 28px;
-                position: relative;
-            }
+            /* 리스트 아이템 한 줄 고정 (잘림 방지 핵심) */
+            .line-item { font-size: 0.82rem; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; display: block !important; padding-left: 28px; position: relative; }
             .line-item::before { position: absolute; left: 0; top: 0; width: 22px; }
         }
     </style>
@@ -174,9 +156,9 @@
 
         <div class="project-card">
             <div class="card-video" style="position: relative; background: #000; overflow: hidden;">
-                <div class="video-aspect-ratio">
-                    <img src="images/sample_Images.jpg" alt="Project Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.45); z-index: 2;">
+                <div class="video-aspect-ratio" style="position: relative; overflow: hidden;">
+                    <img src="images/sample_Images.jpg" alt="Project Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; aspect-ratio: 16/9;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.45); z-index: 2; aspect-ratio: 16/9;">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 12px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
