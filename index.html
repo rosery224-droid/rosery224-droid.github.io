@@ -138,12 +138,13 @@
         /* 모바일 최적화 */
         @media (max-width: 768px) {
             .navbar { height: 60px; } .nav-logo { font-size: 0.9rem; } .nav-menu { gap: 15px; } .nav-link { font-size: 0.8rem; }
-            .container { margin-top: 60px; width: 94%; }
+            .container { margin-top: 60px; width: 94%; padding: 30px 0; }
             .hero-title { font-size: 1.8rem; }
             .hero-desc { font-size: 1rem; }
+            .hero-section { margin-bottom: 30px; }
 
-            /* 헤더 섹션 - 모바일에서 hero-section과 동일한 여백 */
-            .header { margin: 50px 0 20px 0; padding: 0 0 20px 0; border-bottom: 1px solid var(--border); }
+            /* 헤더 섹션 - hero-section 상단 여백(30px)과 동일하게 */
+            .header { margin: 30px 0 20px 0; padding: 0 0 20px 0; border-bottom: 1px solid var(--border); }
             .header::before { display: none; }
             .header h1 { font-size: 1.35rem; padding-left: 0; }
             .header-sub { font-size: 0.9rem; }
