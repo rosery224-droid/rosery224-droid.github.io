@@ -129,9 +129,9 @@
         /* 도트 리스트 - Main의 .line-item과 동일 */
         .sub-desc-container { margin: 10px 0 0 0; display: flex; flex-direction: column; gap: 8px; }
         .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.6; }
-        .line-item::before { content: '•'; font-weight: 900; font-size: 1rem; flex-shrink: 0; }
-        .zone-a .line-item::before { color: var(--point-blue); }
-        .zone-b .line-item::before { color: var(--point-purple); }
+        .line-item::before { content: '•'; font-weight: 900; font-size: 1rem; flex-shrink: 0; color: var(--text-p); }
+        .zone-a .line-item::before { color: var(--text-p); }
+        .zone-b .line-item::before { color: var(--text-p); }
 
         /* ── [모바일 최적화 - Main의 @media 768px 규격 완전 동기화] ── */
         @media (max-width: 768px) {
