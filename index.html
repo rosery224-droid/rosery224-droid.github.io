@@ -81,12 +81,9 @@
         .video-aspect-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
         /* [기본 스타일 모음] */
-        .header { text-align: left; position: relative; margin: 60px 0 40px 0; padding: 0 0 20px 30px; border-bottom: 1px solid var(--border); }
-        .header::before { 
-            content: ''; position: absolute; left: 0; top: 0; bottom: 20px; 
-            width: 3px; background: var(--grad-point); border-radius: 2px; 
-        }
+        .header { text-align: left; position: relative; margin: 60px 0 15px 0; padding: 0 0 20px 0; border-bottom: 1px solid var(--border); }
         .header h1 { margin: 0; font-size: 1.8rem; letter-spacing: -1px; color: var(--text-p); font-weight: 800; line-height: 1.2; }
+        .header-sub { font-size: 1rem; color: var(--text-s); font-weight: 500; margin: 8px 0 0 0; word-break: keep-all; }
         
         /* 6WEEKS 라벨을 배지 스타일로 통일 */
         .total-time-badge { color: var(--point-blue); background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.15); margin-bottom: 10px; }
@@ -145,10 +142,11 @@
             .hero-title { font-size: 1.8rem; }
             .hero-desc { font-size: 1rem; }
 
-            /* 헤더 섹션 - 모바일에서 좌측 바 제거, 상단 여백 정리 */
-            .header { margin: 35px 0 25px 0; padding: 0 0 15px 0; border-bottom: 1px solid var(--border); }
+            /* 헤더 섹션 - 모바일에서 hero-section과 동일한 여백 */
+            .header { margin: 50px 0 20px 0; padding: 0 0 20px 0; border-bottom: 1px solid var(--border); }
             .header::before { display: none; }
             .header h1 { font-size: 1.35rem; padding-left: 0; }
+            .header-sub { font-size: 0.9rem; }
 
             /* total-time-badge: 헤더 제목 위에 작게 배지처럼 */
             .total-time-badge {
@@ -200,6 +198,7 @@
     <header class="header">
         <span class="total-time-badge">6 WEEKS / 30 WORKING DAYS</span>
         <h1>3D Visualization Workflow</h1>
+        <p class="header-sub">GIS 데이터 수집부터 언리얼 엔진 최종 렌더링까지, 실사화 영상 제작의 전 과정을 단계별로 정리했습니다.</p>
     </header>
 
     <section>
