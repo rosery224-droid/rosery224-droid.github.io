@@ -59,7 +59,7 @@
         .container { width: 92%; max-width: 1040px; margin: var(--nav-height) auto 0; padding: 40px 0; box-sizing: border-box; }
 
         /* [히어로 섹션] */
-        .hero-section { margin-bottom: 60px; padding-bottom: 0; }
+        .hero-section { margin-bottom: 40px; padding-bottom: 0; }
         .hero-divider { border: none; border-top: 1px dashed var(--border); margin: 0 0 25px 0; }
         @media (max-width: 768px) {
             .hero-divider { margin: 0 0 20px 0; }
@@ -105,9 +105,9 @@
         .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--point-purple); font-weight: 700; margin-left: 5px; flex-shrink: 0; border: 1px solid #e5e7eb; transition: all 0.3s ease; }
         .card-p0.active .tag, .roadmap-item.active .tag { background: var(--grad-point); color: white; border: none; box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2); }
         .p1-item .tag { color: var(--grad-start); }
-        .sub-desc-container { margin: 10px 0 12px 32px; display: flex; flex-direction: column; gap: 8px; } 
-        .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.6; }
-        .line-item::before { content: '•'; color: inherit; font-weight: 900; flex-shrink: 0; }
+        .sub-desc-container { margin: 10px 0 12px 0; display: flex; flex-direction: column; gap: 8px; } 
+        .line-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-s); font-weight: 500; line-height: 1.6; padding-left: 32px; }
+        .line-item::before { content: '•'; color: inherit; font-weight: 900; flex-shrink: 0; margin-left: -18px; }
         .roadmap-p1 { position: relative; padding-left: 0; margin-top: 0; }
         .roadmap-p1::before { content: ''; position: absolute; left: 11px; top: 35px; bottom: 0; width: 2px; background: var(--border); z-index: 1; border-radius: 2px 2px 0 0; }
         .roadmap-p1::after { content: ''; position: absolute; left: 11px; top: 35px; bottom: 0; width: 2px; background: var(--grad-point); z-index: 1; opacity: 0.08; border-radius: 2px 2px 0 0; }
