@@ -96,6 +96,30 @@
 
 
         /* 모바일 최적화 */
+        /* ── 스텝 카드 그리드 ── */
+        .step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 20px; margin-top: 10px; padding-top: 48px; }
+        .step-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 30px 24px 22px; box-shadow: var(--card-shadow); display: flex; flex-direction: column; gap: 10px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; }
+        .step-card:hover { transform: translateY(-3px); border-color: rgba(99,102,241,0.4); box-shadow: 0 4px 12px rgba(99,102,241,0.1); }
+        .step-card.final { border-color: rgba(99,102,241,0.3); background: var(--card-bg); }
+        .step-number {
+            font-size: 3.4rem; font-weight: 900; line-height: 1; letter-spacing: -2px;
+            background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            position: absolute; top: -22px; left: 20px;
+            -webkit-text-stroke: 1.5px rgba(99,102,241,0.2);
+            filter: drop-shadow(0 2px 8px rgba(99,102,241,0.2));
+        }
+        .step-card.final .step-number { opacity: 1; }
+        .step-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .step-icon { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-icon svg { width: 16px; height: 16px; fill: var(--point-blue); }
+        .step-title { font-size: 1rem; font-weight: 800; color: var(--text-p); }
+        .step-tag { font-size: 0.75rem; color: var(--text-dim); font-weight: 700; align-self: flex-start; }
+        .step-card.final .step-tag { background: none; color: var(--point-purple); font-weight: 800; }
+        .step-desc { font-size: 0.87rem; color: var(--text-s); font-weight: 500; line-height: 1.65; margin: 0; }
+        .step-remark { font-size: 0.75rem; font-weight: 700; color: var(--text-dim); padding-top: 8px; border-top: 1px solid var(--border); margin-top: auto; }
+        .step-card.final .step-remark { color: var(--point-purple); border-top-color: rgba(99,102,241,0.2); }
+
+
         @media (max-width: 768px) {
             .navbar { height: 60px; } .nav-logo { font-size: 0.9rem; } .nav-menu { gap: 15px; } .nav-link { font-size: 0.8rem; }
             .container { margin-top: 60px; width: 94%; padding: 30px 0; }
@@ -118,7 +142,7 @@
 
 
         /* ── 스텝 카드 그리드 ── */
-        .step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+        .step-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 20px; margin-top: 10px; padding-top: 48px; }
         .step-card {
             background: var(--card-bg); border: 1px solid var(--card-border);
             border-radius: 14px; padding: 22px 22px 20px;
@@ -128,19 +152,25 @@
             position: relative; overflow: hidden;
         }
         .step-card:hover { transform: translateY(-3px); border-color: rgba(99,102,241,0.4); box-shadow: 0 4px 12px rgba(99,102,241,0.1); }
-        .step-card.final { border-color: rgba(99,102,241,0.3); background: linear-gradient(135deg, #fafbff 0%, #f5f3ff 100%); }
-        .step-number { font-size: 2.8rem; font-weight: 900; line-height: 1; letter-spacing: -2px; background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.15; position: absolute; top: 14px; right: 18px; }
-        .step-card.final .step-number { opacity: 0.25; }
-        .step-top { display: flex; align-items: center; gap: 10px; }
-        .step-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--grad-point); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .step-icon svg { width: 18px; height: 18px; fill: #fff; }
+        .step-card.final { border-color: rgba(99,102,241,0.3); background: var(--card-bg); }
+        .step-number {
+            font-size: 3.4rem; font-weight: 900; line-height: 1; letter-spacing: -2px;
+            background: var(--grad-point); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            position: absolute; top: -22px; left: 20px;
+            -webkit-text-stroke: 1.5px rgba(99,102,241,0.2);
+            filter: drop-shadow(0 2px 8px rgba(99,102,241,0.2));
+        }
+        .step-card.final .step-number { opacity: 1; }
+        .step-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .step-icon { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-icon svg { width: 16px; height: 16px; fill: var(--point-blue); }
         .step-title { font-size: 1rem; font-weight: 800; color: var(--text-p); }
-        .step-tag { font-size: 0.72rem; background: #f3f4f6; padding: 3px 9px; border-radius: 6px; color: var(--point-purple); font-weight: 700; border: 1px solid #e5e7eb; align-self: flex-start; }
-        .step-card.final .step-tag { background: var(--grad-point); color: #fff; border: none; }
+        .step-tag { font-size: 0.75rem; color: var(--text-dim); font-weight: 700; align-self: flex-start; }
+        .step-card.final .step-tag { background: none; color: var(--point-purple); font-weight: 800; }
         .step-desc { font-size: 0.87rem; color: var(--text-s); font-weight: 500; line-height: 1.65; }
         .step-remark { font-size: 0.75rem; font-weight: 700; color: var(--text-dim); padding-top: 8px; border-top: 1px solid var(--border); margin-top: auto; }
         .step-card.final .step-remark { color: var(--point-purple); border-top-color: rgba(99,102,241,0.2); }
-        .final-badge { position: absolute; top: -1px; left: 20px; background: var(--grad-point); color: #fff; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 0 0 8px 8px; }
+
         .tag { font-size: 0.75rem; background: #f3f4f6; padding: 3px 10px; border-radius: 6px; color: var(--point-purple); font-weight: 700; flex-shrink: 0; border: 1px solid #e5e7eb; }
 
             .step-grid { grid-template-columns: 1fr; }
@@ -244,7 +274,6 @@
             </div>
 
             <div class="step-card final">
-                <span class="final-badge">FINAL</span>
                 <span class="step-number">06</span>
                 <div class="step-top">
                     <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg></div>
